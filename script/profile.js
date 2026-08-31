@@ -1,14 +1,17 @@
 function loadProfile() {
     const profile = JSON.parse(localStorage.getItem("profile"));
 
-    if (!profile) return;
+    if (!profile) {
+        document.getElementById("name").textContent = "Guest";
+        return;
+    }
 
-    document.getElementById("fullName").value = profile.name || "Guest"
+    document.getElementById("fullName").value = profile.name
     document.getElementById("phone").value = profile.phone
     document.getElementById("emailInput").value = profile.email
 
-    document.getElementById("name").textContent = profile.name || "Guest"
-    document.getElementById("name2").textContent = profile.name || "Guest"
+    document.getElementById("name").textContent = profile.name
+    document.getElementById("name2").textContent = profile.name
     document.getElementById("email").textContent = profile.email
 }
 

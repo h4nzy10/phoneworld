@@ -107,7 +107,12 @@ function goToDetail(id) {
 
 function loadProfile() {
     const profile = JSON.parse(localStorage.getItem("profile"));
-    if (!profile) return;
+
+    if (!profile) {
+        document.getElementById("name").textContent = "Guest";
+        return;
+    }
+
     document.getElementById("name").textContent = profile.name;
 }
 loadProfile();
