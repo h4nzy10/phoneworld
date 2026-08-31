@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth no-scrollbar-y overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <title>Beranda</title>
+</head>
+
+<body class="bg-[#222831] text-white font-['Poppins']">
+    <header class="fixed z-500 top-0 w-full bg-[#393E46] px-10 py-2.5"> <!-- ----------Navigation---------- -->
+        <nav class="flex justify-between h-[10%] items-center">
+            <div class="text-2xl font-bold">Phone<span class="text-[#00ADB5]">World</span></div>
+            <div class="flex flex-row gap-[60px] items-center">
+                <a href="home.html" class="text-white no-underline transition-all duration-200 ease-in-out hover:text-[#00ADB5] active:text-white">Beranda</a>
+                <a href="cart.html" class="text-white no-underline transition-all duration-200 ease-in-out hover:text-[#00ADB5] active:text-white">Keranjang</a>
+                <a href="history.html" class="text-white no-underline transition-all duration-200 ease-in-out hover:text-[#00ADB5] active:text-white">Pesanan</a>
+                <p id="name" onclick="window.location.href = 'profile.html'" class="cursor-pointer hover:text-[#00ADB5] transition-all duration-200 ease-in-out"></p>
+                <i data-feather="log-out" id="logout" class="cursor-pointer hover:text-[#00ADB5] transition-all duration-200 ease-in-out"></i>
+            </div>
+        </nav>
+    </header>
+    <div id="searchbar-container" class="fixed z-498 w-full flex items-center h-[50px] justify-start pl-[35px] bg-[#393E46] gap-[20px] flex-row mt-[-75px] transition-all duration-300">
+        <input type="text" id="src" onkeyup="searchProduct()" placeholder="Cari produk..." class="w-[50%] h-[35px] rounded-[10px] border-none pl-[10px] text-[15px] bg-white text-black outline-none focus:ring-2 focus:ring-[#00ADB5]">
+        <button onclick="searchProduct()" class="p-2.5 w-[120px] h-[36px] text-[16px] flex justify-center items-center font-medium rounded-[10px] border-none bg-[#00ADB5] text-white cursor-pointer transition-all duration-200 ease-in-out hover:text-[#00ADB5] hover:bg-white active:bg-[#00ADB5] active:text-white active:shadow-none">Cari</button>
+    </div>
+    <div class="mt-[125px] w-full flex items-center justify-center banner transition-all duration-300">
+        <img id="banner" src="../assets/banner.png" alt="banner" class="w-full">
+    </div>
+    <main class="no-scrollbar-y">
+        <div class="w-full flex justify-start ml-[55px] gap-[20px] mt-[40px]">
+            <button id="btn-all" onclick="filterProducts('all')" class="category-btn px-[25px] py-[10px] text-[16px] font-medium rounded-[50px] border-2 border-[#00ADB5] bg-[#00ADB5] text-white cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,173,181,0.3)] active:scale-95">Semua</button>
+            <button id="btn-flagship" onclick="filterProducts('flagship')" class="category-btn px-[25px] py-[10px] text-[16px] font-medium rounded-[50px] border-2 border-white/20 bg-[#393E46] text-white cursor-pointer transition-all duration-300 ease-in-out hover:border-[#00ADB5] hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,173,181,0.2)] active:scale-95">Flagship</button>
+            <button id="btn-midrange" onclick="filterProducts('midrange')" class="category-btn px-[25px] py-[10px] text-[16px] font-medium rounded-[50px] border-2 border-white/20 bg-[#393E46] text-white cursor-pointer transition-all duration-300 ease-in-out hover:border-[#00ADB5] hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,173,181,0.2)] active:scale-95">Midrange</button>
+            <button id="btn-entrylevel" onclick="filterProducts('entrylevel')" class="category-btn px-[25px] py-[10px] text-[16px] font-medium rounded-[50px] border-2 border-white/20 bg-[#393E46] text-white cursor-pointer transition-all duration-300 ease-in-out hover:border-[#00ADB5] hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,173,181,0.2)] active:scale-95">Entry level</button>
+        </div>
+        <div id="product" class="pt-[20px] mt-[20px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-[35px] pb-[100px] justify-items-center max-w-[1500px] mx-auto px-10">
+        </div>
+    </main>
+    <script type="module">
+        import { createClient } from 'https://esm.sh/@supabase/supabase-js'
+
+        const supabase = createClient(
+            'https://nkiwbbpayyvciasfsfmx.supabase.co',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5raXdiYnBheXl2Y2lhc2ZzZm14Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4NTM4OTcsImV4cCI6MjA5NTQyOTg5N30.9l-eUGzbyHcu4XHtGCckNO47UjH-HKi_Uh2w9qLX3fU'
+        )
+        async function init() {
+            const { data, error } = await supabase.auth.getUser()
+
+            if (error || !data.user) {
+                window.location.href = "login.html"
+                return
+            }
+            document.getElementById("logout").addEventListener("click", logout)
+        }
+        function logout() {
+            supabase.auth.signOut();
+            window.location.href = "../index.html";
+        }
+        init()
+    </script>
+    <script src="../script/home.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+
+</html>

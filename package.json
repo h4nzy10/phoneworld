@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "feather-icons": "^4.29.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.3.0"
+  },
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./style/input.css -o ./style/output.css --watch"
+  }
+}

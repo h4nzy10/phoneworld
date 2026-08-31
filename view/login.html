@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#393E46] scroll-smooth font-['Poppins']">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <title>Masuk ke PhoneWorld</title>
+</head>
+<body class="m-0 p-0 box-border overflow-hidden text-white">
+    <div class="flex flex-row items-center text-white gap-[10px] mt-[35px] ml-[40px] cursor-pointer" onclick="window.location.href = '../index.html'">
+        <i data-feather="arrow-left"></i>
+        <h3 class="text-[20px] font-light">Kembali</h3>
+    </div>
+    <div class="flex justify-between items-center h-full">
+        <div class="text-[50px] font-bold text-white ml-[250px] mt-[-60px]">
+            <p>Phone<span class="text-[#00ADB5]">World</span></p>
+        </div>
+        <div class="bg-[#222831] w-[50%] h-[101vh] mt-[-64px] pt-[50px] flex justify-center items-center flex-col text-white gap-[50px]">
+            <h2 class="text-3xl font-semibold">Masuk ke Phone<span class="text-[#00ADB5]">World</span></h2>
+            <div class="flex flex-col gap-[15px] justify-center text-black">
+                <label for="email" class="text-white">Email</label>
+                <input type="text" id="email" required class="w-[450px] p-[10px] rounded-[30px] border-none bg-white outline-none">
+                <label for="password" class="text-white mt-2">Password</label>
+                <input type="password" id="password" required class="w-[450px] p-[10px] rounded-[30px] border-none bg-white outline-none">
+                <div class="flex flex-row justify-between px-[5px]">
+                    <a href="signup.html" class="no-underline text-white/70 font-bold transition-all duration-200 ease-in-out hover:text-white">Belum punya akun?</a>
+                </div>
+                <div class="flex items-center justify-center gap-[10px] relative mt-2 text-white/70">
+                    <hr class="w-[450px] border border-white/70">
+                    <p class="font-bold absolute px-[5px] bg-[#222831]">Atau</p>
+                </div>
+                <div class="flex justify-between w-[50%] self-center mt-2 text-black">
+                    <i data-feather="mail" class="bg-white w-[80px] h-[40px] rounded-[10px] flex justify-center items-center cursor-pointer transition-all duration-200 ease-in-out hover:text-[#00ADB5]"></i>
+                    <i data-feather="facebook" class="bg-white w-[80px] h-[40px] rounded-[10px] flex justify-center items-center cursor-pointer transition-all duration-200 ease-in-out hover:text-[#00ADB5]"></i>
+                </div>
+                <button id="btn-login" class="w-[250px] h-[40px] self-center mt-[20px] text-lg bg-transparent text-white border-2 border-white rounded-[30px] cursor-pointer transition-all duration-200 ease-in-out hover:text-[#00ADB5] hover:border-[#00ADB5] hover:translate-y-[-3px] active:text-white active:border-white active:translate-y-0">Masuk</button>
+            </div>
+        </div>
+    </div>
+    <script>
+      feather.replace();
+    </script>
+    <script type="module">
+        import { createClient } from 'https://esm.sh/@supabase/supabase-js'
+    </script>
+    <script src="../script/login.js" type="module"></script>
+</body>
+</html>

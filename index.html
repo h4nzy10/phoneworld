@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth no-scrollbar-y overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <title>Get Started</title>
+</head>
+<body class="bg-[#222831] text-white font-['Poppins'] no-scrollbar">
+    <header class="fixed z-50 top-0 w-full bg-[#393E46] px-10 py-[15px]"> <!-- ----------Navigation---------- -->
+        <nav class="flex justify-between items-center h-[10%]">
+            <div class="text-2xl font-semibold">Phone<span class="text-[#00ADB5]">World</span></div>
+            <div class="flex flex-row gap-[60px]">                
+                <a href="#" class="text-white no-underline transition-all duration-200 ease-in-out hover:text-[#00ADB5] active:text-white">Beranda</a>
+                <a href="#about" class="text-white no-underline transition-all duration-200 ease-in-out hover:text-[#00ADB5] active:text-white">Tentang</a>
+                <a href="#commitment" class="text-white no-underline transition-all duration-200 ease-in-out hover:text-[#00ADB5] active:text-white">Komitmen</a>
+            </div>
+        </nav>
+    </header>
+    <main class="mt-[44px]"> <!-- ----------Home---------- -->
+        <section class="bg-[url('../assets/landing.png')] bg-cover bg-center bg-fixed h-screen w-full flex flex-col items-center justify-center"> 
+            <div class="text-center flex flex-col gap-5 p-5 rounded-[10px] mt-[-50px]">
+                <h1 class="text-[45px] font-semibold">Phone<span class="text-[#00ADB5]">World</span></h1>
+                <p class="text-lg">Semua smartphone spek gahar ada disini</p>
+                <button class="px-[7px] py-[8px] text-[18px] bg-transparent rounded-[50px] border-2 border-white text-white cursor-pointer transition-all duration-200 ease-in-out hover:text-[#00ADB5] hover:-translate-y-1 active:text-white active:border-white active:translate-y-0 w-80 mx-auto hover:border-[#00ADB5]" onclick="window.location.href = 'view/login.html'">Mulai</button>
+            </div>
+        </section>
+        <section class="bg-linear-to-b from-[#ACACAC] to-[#222831] h-[150vh] flex flex-col gap-[15px] items-center text-center rounded-[25px] w-full mt-[-20px]" id="about">
+            <div class="mt-[150px]">
+                <h1 class="text-[45px] font-medium">Tentang Phone<span class="text-[#00ADB5]">World</span></h1>
+                <p class="mt-[80px] text-[33px] leading-normal">Phone<span class="text-[#00ADB5]">World</span> merupakan website yang berfokus pada penjualan<br>
+                    smartphone untuk segala kebutuhan anda. Menjual smartphone<br>
+                    berkualitas yang berasal dari toko resmi terpercaya. Dengan<br>
+                    rekomendasi smartphone terbaik dari kami, anda dapat membeli<br>
+                    smartphone sesuai dengan kebutuhan anda.</p>
+            </div>
+        </section> <!-- ----------Commitment---------- -->
+        <p class="absolute text-transparent top-[1700px]" id="commitment">p2</p>
+        <section class="flex flex-col items-center mt-[-70px]"> 
+            <h1 class="text-[#00ADB5] text-4xl">Komitmen Kami</h1>
+            <div class="flex flex-row gap-[60px] flex-wrap justify-center">
+                <div class="bg-[#393E46] w-[250px] h-[500px] rounded-[20px] flex flex-col items-center mt-[100px] overflow-hidden group">
+                    <div class="flex cursor-pointer text-center text-[25px] leading-normal transition-all duration-300 ease-in-out flex-col items-center justify-center bg-white/90 text-[#222831] w-[250px] h-[250px] translate-y-[250px] backdrop-blur-[10px] rounded-[20px] ">
+                        <p class="font-medium p-4">Mengutamakan<br>kepuasan<br>pelanggan kami</p>
+                    </div>
+                </div>
+                <div class="bg-[#393E46] w-[250px] h-[500px] rounded-[20px] flex flex-col items-center mt-[100px] overflow-hidden group">
+                    <div class="flex cursor-pointer text-center text-[25px] leading-normal transition-all duration-300 ease-in-out flex-col items-center justify-center bg-white/90 text-[#222831] w-[250px] h-[250px] translate-y-[250px] backdrop-blur-[10px] rounded-[20px] ">
+                        <p class="font-medium p-4">Menjaga<br>kepercayaan<br>pelanggan kami</p>
+                    </div>
+                </div>
+                <div class="bg-[#393E46] w-[250px] h-[500px] rounded-[20px] flex flex-col items-center mt-[100px] overflow-hidden group">
+                    <div class="flex cursor-pointer text-center text-[25px] leading-normal transition-all duration-300 ease-in-out flex-col items-center justify-center bg-white/90 text-[#222831] w-[250px] h-[250px] translate-y-[250px] backdrop-blur-[10px] rounded-[20px]">
+                        <p class="font-medium p-4">Menjaga<br>keamanan data<br>pelanggan kami</p>
+                    </div>
+                </div>
+                <div class="bg-[#393E46] w-[250px] h-[500px] rounded-[20px] flex flex-col items-center mt-[100px] overflow-hidden group">
+                    <div class="flex cursor-pointer text-center text-[25px] leading-normal transition-all duration-300 ease-in-out flex-col items-center justify-center bg-white/90 text-[#222831] w-[250px] h-[250px] translate-y-[250px] backdrop-blur-[10px] rounded-[20px]">
+                        <p class="font-medium p-4">Memberikan<br>rekomendasi<br>terbaik</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- -------Footer------- -->
+    <footer class="flex flex-col gap-[30px] mt-50">
+        <hr class="border-gray-600">
+        <div class="flex flex-row flex-wrap justify-between mx-[50px] gap-10">
+            <div class="flex flex-col gap-[30px]">
+                <h2 class="text-2xl font-bold">Phone <span class="text-[#00ADB5]">World</span></h2>
+                <p>Memberikan rekomendasi<br>smartphone terbaik</p>
+                <div class="flex flex-row gap-[20px]">
+                    <i data-feather="instagram" class="cursor-pointer hover:text-[#00ADB5]"></i>
+                    <i data-feather="youtube" class="cursor-pointer hover:text-[#00ADB5]"></i>
+                </div>
+            </div>
+            <div class="flex flex-col gap-[30px] text-center md:text-fsejlkfg;dml, lkfdgfleft">
+                <h3 class="font-normal text-[#00ADB5] text-xl">Legal & Dukungan</h3>
+                <p class="cursor-pointer hover:text-[#00ADB5] transition-all duration-300 ease-in-out">Kebijakan privasi</p>
+                <p class="cursor-pointer hover:text-[#00ADB5] transition-all duration-300 ease-in-out">Ketentuan layanan</p>
+                <p class="cursor-pointer hover:text-[#00ADB5] transition-all duration-300 ease-in-out">Kebijakan pengembalian</p>
+            </div>
+            <div class="flex flex-col gap-[30px] text-center md:text-left">
+                <h3 class="font-normal text-[#00ADB5] text-xl">Perusahaan</h3>
+                <p class="cursor-pointer hover:text-[#00ADB5] transition-all duration-300 ease-in-out">Tentang kami</p>
+                <p class="cursor-pointer hover:text-[#00ADB5] transition-all duration-300 ease-in-out">Tim kami</p>
+                <p class="cursor-pointer hover:text-[#00ADB5] transition-all duration-300 ease-in-out">Ulasan kepuasan</p>
+            </div>
+            <div class="flex flex-col gap-[30px] text-center md:text-left">
+                <h3 class="font-normal text-[#00ADB5] text-xl">Hubungi kami</h3>
+                <p>Jln. Iskandar Muda No.10,<br>Jakarta, Indonesia</p>
+                <p>+62-821-2231-6584</p>
+            </div>
+        </div>
+        <hr class="border-gray-600">
+        <p class="mb-[25px] ml-[20px] text-gray-400">&#169; Copyright 2026 By Phone<span class="text-[#00ADB5]">World</span> Corp, All right reserved.</p>
+    </footer>
+    <script>
+      feather.replace();
+    </script>
+    <script src="script/main.js"></script>
+</body>
+</html>

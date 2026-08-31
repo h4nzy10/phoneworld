@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden no-scrollbar-y">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <title>Profil</title>
+</head>
+<body class="bg-[#222831] text-white font-['Poppins']">
+    <header class="fixed z-500 top-0 w-full bg-[#393E46] px-10 py-2.5">
+        <nav class="flex justify-between h-[10%] items-center">
+            <a href="home.html" class="text-2xl font-bold no-underline text-white">Phone<span class="text-[#00ADB5]">World</span></a>
+            <div class="flex flex-row gap-[60px] items-center">
+                <a href="home.html"    class="text-white no-underline transition-all duration-200 ease-in-out hover:text-[#00ADB5] active:text-white">Beranda</a>
+                <a href="cart.html"    class="text-white no-underline transition-all duration-200 ease-in-out hover:text-[#00ADB5] active:text-white">Keranjang</a>
+                <a href="history.html" class="text-white no-underline transition-all duration-200 ease-in-out hover:text-[#00ADB5] active:text-white">Pesanan</a>
+                <p id="name" onclick="window.location.href = 'profile.html'" class="cursor-pointer hover:text-[#00ADB5] transition-all duration-200 ease-in-out"></p>
+                <i data-feather="log-out" id="logout" class="cursor-pointer hover:text-[#00ADB5] transition-all duration-200 ease-in-out"></i>
+            </div>
+        </nav>
+    </header>
+    <main class="p-8 space-y-8 mt-[50px]">
+
+        <!-- Profile Header -->
+        <section class="bg-white/5 backdrop-blur-md border border-cyan-400/20 rounded-3xl p-10 flex items-center">
+            <div class="flex items-center">
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-5xl font-bold" id="name2">-</h2>
+                    <p class="text-gray-300 mt-2" id="email">-</p>
+                    <div class="flex items-center mt-4 gap-2 bg-cyan-500/10 text-cyan-400 px-4 py-2 rounded-full text-center">Member</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informasi Profil -->
+        <section class="bg-white/5 backdrop-blur-md border border-cyan-400/20 rounded-3xl p-10">
+            <h2 class="text-4xl font-bold mb-3">Informasi Profil</h2>
+            <p class="text-gray-400 mb-8">Kelola informasi pribadi yang akan digunakan untuk transaksi dan komunikasi.</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="text-gray-300 block mb-2">Nama Lengkap</label>
+                    <input type="text" id="fullName" class="w-full bg-black/20 border border-cyan-400/20 rounded-xl p-4 outline-none focus:border-cyan-400">
+                </div>
+                <div>
+                    <label class="text-gray-300 block mb-2">Nomor Telepon</label>
+                    <input type="text" id="phone" class="w-full bg-black/20 border border-cyan-400/20 rounded-xl p-4 outline-none focus:border-cyan-400">
+                </div>
+            </div>
+            <div class="mt-6">
+                <label class="text-gray-300 block mb-2" id="email-input">Email</label>
+                <input type="password" id="emailInput" readonly class=" cursor-not-allowed w-full bg-black/20 border border-cyan-400/20 rounded-xl p-4 outline-none focus:border-cyan-400">
+            </div>
+            <div class="flex justify-center mt-8">
+                <button onclick="saveProfile()" class="px-10 w-[250px] py-4 rounded-xl bg-[#00ADB5] font-semibold text-black hover:bg-[#00d9ff] active:bg-[#00ADB5] transition-colors cursor-pointer">Simpan Profil</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module">
+        import { createClient } from 'https://esm.sh/@supabase/supabase-js'
+
+        const supabase = createClient(
+            'https://nkiwbbpayyvciasfsfmx.supabase.co',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5raXdiYnBheXl2Y2lhc2ZzZm14Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4NTM4OTcsImV4cCI6MjA5NTQyOTg5N30.9l-eUGzbyHcu4XHtGCckNO47UjH-HKi_Uh2w9qLX3fU'
+        )
+        async function init() {
+            const { data, error } = await supabase.auth.getUser()
+
+            if (error || !data.user) {
+                window.location.href = "login.html"
+                return
+            }
+            document.getElementById("email").textContent = data.user.email;
+            document.getElementById("email-input").value = data.user.email;
+            document.getElementById("logout").addEventListener("click", logout)
+        }
+        function logout() {
+            supabase.auth.signOut();
+            window.location.href = "../index.html";
+        }
+        init()
+    </script>
+    <script src="../script/profile.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</body>
+</html>

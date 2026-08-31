@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden no-scrollbar-y">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <title> Histori Pesanan</title>
+</head>
+<body class="bg-[#222831] text-white font-['Poppins']">
+    <header class="fixed z-500 top-0 w-full bg-[#393E46] px-10 py-2.5"> <!-- ----------Navigation---------- -->
+        <nav class="flex justify-between h-[10%] items-center">
+            <div class="text-2xl font-bold">Phone<span class="text-[#00ADB5]">World</span></div>
+            <div class="flex flex-row gap-[60px] items-center">
+                <a href="home.html" class="text-white no-underline transition-all duration-200 ease-in-out hover:text-[#00ADB5] active:text-white">Beranda</a>
+                <a href="cart.html" class="text-white no-underline transition-all duration-200 ease-in-out hover:text-[#00ADB5] active:text-white">Keranjang</a>
+                <a href="history.html" class="text-white no-underline transition-all duration-200 ease-in-out hover:text-[#00ADB5] active:text-white">Pesanan</a>
+                <p id="name" onclick="window.location.href = 'profile.html'" class="cursor-pointer hover:text-[#00ADB5] transition-all duration-200 ease-in-out"></p>
+                <i data-feather="log-out" id="logout" class="cursor-pointer hover:text-[#00ADB5] transition-all duration-200 ease-in-out"></i>
+            </div>
+        </nav>
+    </header>
+    <div class="fixed z-498 w-full flex items-center h-[50px] justify-start pl-[35px] bg-[#393E46] gap-[20px] flex-row mt-[-80px]">
+        <input type="text" id="src" placeholder="Cari produk..." class="w-[50%] h-[35px] rounded-[10px] border-none pl-[10px] text-[15px] bg-white text-black outline-none focus:ring-2 focus:ring-[#00ADB5]">
+        <button class="p-2.5 w-[120px] h-[36px] text-[16px] flex justify-center items-center font-medium rounded-[10px] border-none bg-[#00ADB5] text-white cursor-pointer transition-all duration-200 ease-in-out hover:text-[#00ADB5] hover:bg-white active:bg-[#00ADB5] active:text-white active:shadow-none">Cari</button>
+    </div>
+    <main>
+        <section class="mt-[130px] ml-[30px]">
+            <div id="order"></div>
+        </section>
+    </main>
+        <script type="module">
+        import { createClient } from 'https://esm.sh/@supabase/supabase-js'
+        const supabase = createClient (
+            'https://nkiwbbpayyvciasfsfmx.supabase.co',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5raXdiYnBheXl2Y2lhc2ZzZm14Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4NTM4OTcsImV4cCI6MjA5NTQyOTg5N30.9l-eUGzbyHcu4XHtGCckNO47UjH-HKi_Uh2w9qLX3fU'
+        )
+        async function init() {
+            const { data, error } = await supabase.auth.getUser()
+
+            if (error || !data.user) {
+                window.location.href = "login.html"
+                return
+            }
+            document.getElementById("logout").addEventListener("click", logout)
+        }
+
+        function logout() {
+            supabase.auth.signOut();
+            window.location.href = "../index.html";
+        }
+
+        init()
+    </script>
+    <script src="../script/history.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
