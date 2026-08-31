@@ -54,6 +54,10 @@
                 window.location.href = "login.html"
                 return
             }
+            const { data: user } = await supabase.from('profiles').select('name').eq('id', data.user.id).single()
+            if (user) {
+                document.getElementById('name').innerText = user.name
+            }
             document.getElementById("logout").addEventListener("click", logout)
         }
         function logout() {
