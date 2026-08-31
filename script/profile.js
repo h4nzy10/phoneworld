@@ -8,11 +8,10 @@ function loadProfile() {
 
     document.getElementById("fullName").value = profile.name
     document.getElementById("phone").value = profile.phone
-    document.getElementById("emailInput").value = profile.email
+    document.getElementById("emailInput").value = profile.email.slice(0, 4) + "..." + profile.email.slice(-3)
 
     document.getElementById("name").textContent = profile.name
     document.getElementById("name2").textContent = profile.name
-    document.getElementById("email").textContent = profile.email
 }
 
 function saveProfile() {
