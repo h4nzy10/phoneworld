@@ -9,8 +9,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "build": "npx @tailwindcss/cli -i ./style/input.css -o ./style/output.css --watch",
-    "preinstall": "npm config set allow-scripts true"
+    "build": "npx @tailwindcss/cli -i ./style/input.css -o ./style/output.css --watch"
   },
   "repository": {
     "type": "git",
