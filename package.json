@@ -1,13 +1,46 @@
 {
+  "name": "phoneworld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "dependencies": {
-    "feather-icons": "^4.29.2"
+    "classnames": "^2.5.1",
+    "core-js": "^3.49.0",
+    "detect-libc": "^2.1.2",
+    "enhanced-resolve": "^5.22.1",
+    "feather-icons": "^4.29.2",
+    "graceful-fs": "^4.2.11",
+    "is-extglob": "^2.1.1",
+    "is-glob": "^4.0.3",
+    "jiti": "^2.7.0",
+    "lightningcss": "^1.32.0",
+    "lightningcss-win32-x64-msvc": "^1.32.0",
+    "magic-string": "^0.30.21",
+    "mri": "^1.2.0",
+    "node-addon-api": "^7.1.1",
+    "picocolors": "^1.1.1",
+    "picomatch": "^4.0.4",
+    "source-map-js": "^1.2.1",
+    "tailwindcss": "^4.3.0",
+    "tapable": "^2.3.3"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.0.0",
-    "tailwindcss": "^4.0.0"
+    "@tailwindcss/cli": "^4.0.0"
   },
   "scripts": {
     "dev": "npx @tailwindcss/cli -i ./style/input.css -o ./style/output.css --watch",
     "build": "npx @tailwindcss/cli -i ./style/input.css -o ./style/output.css --minify"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h4nzy10/phoneworld.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/h4nzy10/phoneworld/issues"
+  },
+  "homepage": "https://github.com/h4nzy10/phoneworld#readme"
 }
