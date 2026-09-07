@@ -4,10 +4,10 @@
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.0.0",
-    "tailwindcss": "^4.3.0"
+    "tailwindcss": "^4.0.0"
   },
   "scripts": {
-    "dev": "tailwindcss -i ./style/input.css -o ./style/output.css --watch",
-    "build": "tailwindcss -i ./style/input.css -o ./style/output.css --minify"
+    "dev": "npx @tailwindcss/cli -i ./style/input.css -o ./style/output.css --watch",
+    "build": "npx @tailwindcss/cli -i ./style/input.css -o ./style/output.css --minify"
   }
 }
